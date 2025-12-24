@@ -1,0 +1,201 @@
+/* Обнуление и базовая настройка */
+* {
+  margin: 0; /* Убирает стандартные внешние отступы у всех элементов */
+  padding: 0; /* Убирает стандартные внутренние отступы у всех элементов */
+  box-sizing: border-box; /* Включает padding и border в расчёт общей ширины/высоты элемента */
+}
+
+/* Стили для тела документа */
+body {
+  font-family: 'Segoe UI', sans-serif; /* Устанавливает шрифт по умолчанию */
+  background: #fff; /* Белый фон */
+  color: #000; /* Чёрный текст */
+  min-height: 100vh; /* Минимальная высота равна высоте вьюпорта (окна браузера) */
+  display: flex; /* Включает flexbox для выравнивания содержимого */
+  flex-direction: column; /* Направление элементов в колонку */
+  align-items: center; /* Выравнивание элементов по центру по горизонтали */
+  padding: 20px; /* Внутренние отступы */
+  line-height: 1.6; /* Высота строки для лучшей читаемости */
+}
+
+/* Стили для основного контейнера */
+main {
+  width: 100%; /* Ширина 100% от родителя */
+  max-width: 900px; /* Максимальная ширина */
+  padding: 20px; /* Внутренние отступы */
+  text-align: center; /* Центрирование текста внутри */
+}
+
+/* Стили для изображений */
+p img {
+  max-width: 100%; /* Изображение не выходит за пределы родительского контейнера */
+  height: auto; /* Сохраняет пропорции изображения */
+  border-radius: 12px; /* Скругление углов */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Тень для глубины на светлом фоне */
+  margin-bottom: 30px; /* Отступ снизу */
+  transition: transform 0.4s ease, filter 0.4s ease; /* Плавные переходы для трансформаций и фильтров */
+}
+
+/* Стили при наведении на изображение */
+p img:hover {
+  transform: scale(1.02); /* Лёгкое увеличение при наведении */
+  filter: brightness(1.05); /* Лёгкое увеличение яркости при наведении */
+}
+
+/* Стили для параграфа с акцентным текстом (все кроме первого) */
+p:not(:first-of-type) {
+  font-size: 2rem; /* Размер шрифта */
+  margin: 20px 0; /* Внешние отступы сверху и снизу */
+  color: #333; /* Тёмно-серый для акцентного текста */
+}
+
+/* Стили для секции "о проекте" */
+.about-section {
+  margin: 30px auto; /* Внешние отступы сверху/снизу и авто-отступы по бокам для центрирования */
+  padding: 30px; /* Внутренние отступы */
+  background: #f5f5f5; /* Светло-серый фон для контраста */
+  border-radius: 12px; /* Скругление углов */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+  text-align: center; /* Центрирование текста */
+  max-width: 800px; /* Максимальная ширина */
+}
+
+/* Стили для параграфа внутри секции "о проекте" */
+.about-section p {
+  font-size: 1.5rem; /* Размер шрифта */
+  margin-bottom: 25px; /* Внешний отступ снизу */
+  color: #333; /* Тёмно-серый цвет */
+  max-width: 600px; /* Максимальная ширина текста */
+  margin-left: auto; /* Авто-отступ слева */
+  margin-right: auto; /* Авто-отступ справа */
+  text-align: center; /* Центрирование текста */
+}
+
+/* Стили для раскрывающихся статей */
+.expandable-article {
+    font-family: 'Segoe UI', sans-serif; /* Шрифт */
+    line-height: 1.6; /* Высота строки */
+    font-size: 16px; /* Размер шрифта */
+    font-weight: 200; /* Жирность шрифта */
+    border-radius: 12px; /* Скругление углов */
+    padding: 20px; /* Внутренние отступы */
+    margin: 20px auto; /* Внешние отступы и центрирование */
+    cursor: pointer; /* Курсор при наведении */
+    background: #f9f9f9; /* Светло-серый фон статьи */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+    max-width: 800px; /* Максимальная ширина */
+    text-align: left; /* Выравнивание текста слева */
+    transition: background 0.3s ease; /* Плавный переход цвета фона */
+    position: relative; /* Относительное позиционирование */
+}
+.expandable-article:hover {
+     background: #f0f0f0; /* Более тёмный фон при наведении */
+ }
+
+/* Стили для заголовка статьи */
+.expandable-article h2 {
+    font-weight: 100; /* Жирность шрифта */
+    font-size: 30px; /* Размер шрифта */
+    margin-bottom: 15px; /* Внешний отступ снизу */
+    margin-top: 0; /* Внешний отступ сверху */
+    color: #000; /* Чёрный цвет */
+    position: relative; /* Относительное позиционирование */
+    padding-right: 30px; /* Внутренний отступ справа для стрелки */
+}
+/* Псевдоэлемент для добавления стрелки */
+.expandable-article h2::after {
+    content: "▼"; /* Текст стрелки */
+    position: absolute; /* Абсолютное позиционирование */
+    right: 0; /* Прижато к правому краю */
+    top: 50%; /* Позиционирование по вертикали */
+    transform: translateY(-50%) rotate(0deg); /* Центрирование по вертикали и начальный поворот */
+    transition: transform 0.3s ease; /* Плавный переход поворота */
+    color: #000; /* Цвет стрелки */
+    font-size: 18px; /* Размер шрифта стрелки */
+}
+/* Поворот стрелки при раскрытии статьи (когда родительский элемент имеет атрибут aria-expanded="true") */
+.expandable-article[aria-expanded="true"] h2::after {
+    transform: translateY(-50%) rotate(180deg); /* Поворот на 180 градусов */
+}
+/* Скрытие содержимого по умолчанию */
+.expandable-content {
+    display: none; /* Скрывает элемент */
+}
+.expandable-content.expanded {
+    display: block; /* Показывает элемент, когда добавлен класс 'expanded' */
+}
+.source-text {
+    font-size: 17px;
+    font-weight: bold;
+    font-style: italic;
+    color: #000; /* Чёрный цвет */
+    margin-bottom: 10px;
+}
+.expandable-content ul {
+    padding-left: 20px;
+}
+.expandable-content li {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333; /* Тёмно-серый цвет */
+}
+
+/* Адаптивные стили для планшетов */
+@media (max-width: 768px) {
+  body {
+    padding: 15px; /* Уменьшенные отступы */
+  }
+  main {
+    padding: 15px; /* Уменьшенные отступы */
+  }
+  h2 {
+    font-size: 2rem; /* Уменьшенный размер шрифта заголовков */
+    margin: 15px 0; /* Уменьшенные отступы */
+  }
+  p:not(:first-of-type) {
+    font-size: 1.5rem; /* Уменьшенный размер шрифта акцентного текста */
+  }
+  .expandable-article {
+    margin: 15px auto; /* Уменьшенные отступы */
+    padding: 15px; /* Уменьшенные отступы */
+  }
+  .expandable-article h2 {
+    font-size: 24px; /* Уменьшенный размер шрифта заголовка статьи */
+  }
+  .source-text {
+    font-size: 15px; /* Уменьшенный размер шрифта */
+  }
+  .expandable-content li {
+    font-size: 16px; /* Уменьшенный размер шрифта списка */
+  }
+}
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 480px) {
+  body {
+    padding: 10px; /* Уменьшенные отступы */
+    font-size: 0.9rem; /* Уменьшенный базовый размер шрифта */
+  }
+  main {
+    padding: 10px; /* Уменьшенные отступы */
+  }
+  h2 {
+    font-size: 1.7rem; /* Уменьшенный размер шрифта заголовков */
+    margin: 10px 0; /* Уменьшенные отступы */
+  }
+  p:not(:first-of-type) {
+    font-size: 1.2rem; /* Уменьшенный размер шрифта акцентного текста */
+  }
+  .expandable-article {
+    margin: 10px auto; /* Уменьшенные отступы */
+    padding: 10px; /* Уменьшенные отступы */
+  }
+  .expandable-article h2 {
+    font-size: 20px; /* Уменьшенный размер шрифта заголовка статьи */
+  }
+  .source-text {
+    font-size: 13px; /* Уменьшенный размер шрифта */
+  }
+  .expandable-content li {
+    font-size: 14px; /* Уменьшенный размер шрифта списка */
+  }
+}
